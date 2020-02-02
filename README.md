@@ -28,9 +28,9 @@ Used source image labels:
 
 Produced image labels:
 
-- **caseraw/ansible-molecule-centos:latest**
-- **caseraw/ansible-molecule-centos:8**
-- **caseraw/ansible-molecule-centos:7**
+- **j-vanwijk/ansible-molecule-centos:latest**
+- **j-vanwijk/ansible-molecule-centos:8**
+- **j-vanwijk/ansible-molecule-centos:7**
 
 > Source: <https://hub.docker.com/_/centos/>
 
@@ -67,9 +67,9 @@ docker build --rm -t local/ansible-molecule-centos:7 .
 ## 1.4. Tag and push the image for use with Dockerhub
 
 ```shell
-docker tag local/ansible-molecule-centos:7 caseraw/ansible-molecule-centos:7
+docker tag local/ansible-molecule-centos:7 j-vanwijk/ansible-molecule-centos:7
 
-docker push caseraw/ansible-molecule-centos:7
+docker push j-vanwijk/ansible-molecule-centos:7
 ```
 
 > Make sure to use the correct and desired tag.
@@ -125,7 +125,7 @@ script:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker tag local/ansible-molecule-centos:7 caseraw/ansible-molecule-centos:7
+  - docker tag local/ansible-molecule-centos:7 j-vanwijk/ansible-molecule-centos:7
   - docker push $DOCKER_USERNAME/ansible-molecule-centos:7
 
 ...
